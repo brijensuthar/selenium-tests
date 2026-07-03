@@ -1,0 +1,49 @@
+package Page;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class PracticePage {
+
+	WebDriver driver;
+	private WebDriverWait wait;
+	JavascriptExecutor js;
+
+	By element = By.xpath("//*[@href=\"/elements\"]");
+	By textbox = By.linkText("Text Box");
+	By FullName = By.id("userName");
+	By Email = By.id("userEmail");
+	By CurrentAddress = By.id("currentAddress");
+
+	public PracticePage(WebDriver driver) {
+		this.driver = driver;
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		this.js = (JavascriptExecutor) driver;
+	}
+
+	public void clickOnElement() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+		js.executeScript("window.scrollBy(0,500)");
+		driver.findElement(element).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(textbox));
+		driver.findElement(textbox).click();
+	}
+
+	public void fillAllTextBox() throws InterruptedException {
+		Thread.sleep(2000);
+		driver.findElement(FullName).sendKeys("Mathew Hayden");
+		driver.findElement(Email).sendKeys("mathew.hayden@gmail.com");
+		driver.findElement(CurrentAddress).sendKeys("Australia");
+		driver.findElement(By.id("permanentAddress")).sendKeys("Australia");
+		js.executeScript("window.scrollBy(0,300)");
+		Thread.sleep(2000);
+		driver.findElement(By.id("submit")).click();
+	}
+
+}
