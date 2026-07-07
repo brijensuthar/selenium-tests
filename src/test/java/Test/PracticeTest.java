@@ -22,15 +22,20 @@ public class PracticeTest extends Base {
 		obj.clickOnElement();
 	}
 	
-	@Test (priority = 2, enabled = true)
+	@Test (priority = 2, enabled = false)
 	public void testTextBox() throws InterruptedException {
 		obj.clickOnElement();
 		obj.fillAllTextBox();
 	}
-
+	
+	@Test (priority = 3, enabled = true)
+	public void testCheckbox() throws InterruptedException {
+		obj.clickOnElement();
+		obj.clickOnCheckbox();
+	}
+	
 	@AfterMethod
 	public void tearDown() {
 		closeBrowser();
 	}
-
 }

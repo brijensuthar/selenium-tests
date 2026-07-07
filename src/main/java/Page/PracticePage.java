@@ -17,6 +17,7 @@ public class PracticePage {
 
 	By element = By.xpath("//*[@href=\"/elements\"]");
 	By textbox = By.linkText("Text Box");
+	By checkbox = By.cssSelector("a[href='/checkbox']");
 	By FullName = By.id("userName");
 	By Email = By.id("userEmail");
 	By CurrentAddress = By.id("currentAddress");
@@ -31,11 +32,11 @@ public class PracticePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(element));
 		js.executeScript("window.scrollBy(0,500)");
 		driver.findElement(element).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(textbox));
-		driver.findElement(textbox).click();
 	}
 
 	public void fillAllTextBox() throws InterruptedException {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(textbox));
+		driver.findElement(textbox).click();
 		Thread.sleep(2000);
 		driver.findElement(FullName).sendKeys("Mathew Hayden");
 		driver.findElement(Email).sendKeys("mathew.hayden@gmail.com");
@@ -45,5 +46,12 @@ public class PracticePage {
 		Thread.sleep(2000);
 		driver.findElement(By.id("submit")).click();
 	}
+	
+	public void clickOnCheckbox() {
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(checkbox));
+		driver.findElement(checkbox).click();
+	}
+	
+	
 
 }
