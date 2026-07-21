@@ -1,0 +1,10 @@
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# Maven compiled output
+target/
+
+# TestNG reports
+test-output/
