@@ -31,7 +31,10 @@ public class PracticeTest extends Base {
 	@Test (priority = 3, enabled = true)
 	public void testCheckbox() throws InterruptedException {
 		obj.clickOnElement();
-		obj.clickOnCheckbox();
+//		obj.clickOnCheckbox();
+//		obj.clickOnRadioButton();
+		Thread.sleep(5000);
+		obj.testTable();
 	}
 	
 	@AfterMethod
