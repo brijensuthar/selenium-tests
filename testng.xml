@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="classes" thread-count="5">
+	<test name="Test">
+		<classes>
+			<class name="Test.LinkTest" />
+			<class name="Test.ButtonTest" />
+			<class name="Test.TextBoxTest" />
+			<class name="Test.TableTest" />
+			<class name="Test.RadioButtonTest" />
+			<class name="Test.CheckBoxTest" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
